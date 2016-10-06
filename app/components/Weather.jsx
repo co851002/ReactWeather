@@ -1,4 +1,3 @@
-//If you are getting this error, try setting the value to either "inline-source-map" or "eval-source-map" instead.
 var React = require('react');
 var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
@@ -13,30 +12,27 @@ var Weather = React.createClass({
   handleSearch: function (location) {
     var that = this;
 
-    this.setState({isLoading:true});
+    this.setState({isLoading: true});
 
     openWeatherMap.getTemp(location).then(function (temp) {
       that.setState({
         location: location,
         temp: temp,
-        isLoading:false
+        isLoading: false
       });
     }, function (errorMessage) {
-        alert(errorMessage);
-        that.setState({isLoading:false});
-
+      that.setState({isLoading: false});
+      alert(errorMessage);
     });
   },
   render: function () {
     var {isLoading, temp, location} = this.state;
 
-    function renderMessage (){
-      if (isLoading){
-        return <h3>Fetching Weather...</h3>;
-      }else if (temp && location) {
+    function renderMessage () {
+      if (isLoading) {
+        return <h3>Fetching weather...</h3>;
+      } else if (temp && location) {
         return <WeatherMessage temp={temp} location={location}/>;
-      }else{
-        return <h3>Please enter a valid city name</h3>;
       }
     }
 
