@@ -5,11 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "node server.js"
-=======
     "start":"node server.js"
->>>>>>> 9e128299558eef1b4b6c261222a28d3971ad24eb
   },
   "author": "Andrew Mead",
   "license": "MIT",
